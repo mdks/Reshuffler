@@ -4,9 +4,9 @@ gem 'rails', '3.2.2'
 
 gem 'nokogiri'
 
-gem 'httparty'
+#gem 'httparty'
 
-gem 'ruby-debug19', :require => 'ruby-debug'
+#gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
