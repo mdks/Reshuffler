@@ -2,7 +2,7 @@ class MainController < ApplicationController
 
   # POST
   def reshuffle
-    in_document = request.body
+    in_document = request.raw_post
 
     output = HTMLUnnest.new(in_document)
 
