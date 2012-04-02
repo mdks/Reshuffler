@@ -10,4 +10,14 @@ class MainController < ApplicationController
   end
 
 
+  # POST
+  def list_ids
+    in_document = request.body.read
+
+    output = HTMLIDClassList.new(in_document)
+
+    render :text => output.to_html
+  end
+
+
 end
