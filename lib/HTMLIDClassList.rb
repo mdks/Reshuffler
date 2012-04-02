@@ -39,7 +39,7 @@ class HTMLIDClassList
   unless unnested.nil? || ['head', 'xml', 'meta', 'link', 'body', 'html', 'document'].include?(unnested.name) # nothing outside body
   # remove indent
   @global_out += "id: #{unnested.attributes["id"]}\n" if unnested.attributes["id"]
-  @global_out += "class: #{unnested.attributes["class"]}\n" if unnested.attributes["class"]
+  # @global_out += "class: #{unnested.attributes["class"]}\n" if unnested.attributes["class"]
   end
 
   end
