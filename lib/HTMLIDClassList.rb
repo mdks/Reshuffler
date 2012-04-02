@@ -16,12 +16,6 @@ class HTMLIDClassList
 
   end
 
-  def to_html
-    @document.to_html
-  end
-
-  # walk tree
-
   def list(node)
 
   # recurse

@@ -16,7 +16,7 @@ class MainController < ApplicationController
 
     output = HTMLIDClassList.new(in_document)
 
-    render :text => output.to_html
+    render :text => output
   end
 
 
