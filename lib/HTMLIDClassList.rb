@@ -16,6 +16,10 @@ class HTMLIDClassList
 
   end
 
+  def out
+    @global_out
+  end
+
   def list(node)
 
   # recurse
