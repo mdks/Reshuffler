@@ -41,7 +41,7 @@ class CSSMerge
     @parser_old.load_uri!(old_css)
     
     @parser_new = CssParser::Parser.new
-    @parser_new.load_uri!(new_css)
+    @parser_new.load_file!(new_css)
     
     @old_css_hash = {}
     @new_css_hash = {}
@@ -54,18 +54,24 @@ class CSSMerge
       @new_css_hash[selector] = declarations
     end
 
-    @merged_css = @new_css_hash.merge!(@old_css_hash)
+    # @merged_css = @new_css_hash.merge!(@old_css_hash)
+    #     
+    #     @global_out = ''
+    #     
+    #     @merged_css.each do |selector, rules|
+    #       @global_out += "#{selector} { #{rules} }\n\n"
+    #     end
     
-    @global_out = ''
-    
-    @merged_css.each do |selector, rules|
-      @global_out += "#{selector} { #{rules} }\n\n"
+    @old_css_hash.each do |selector, rules|
+      if @parser_new.find_by_selector(selector) == []
+        @parser_new.add_block!("#{selector} { #{rules} }\n\n")
+      end
     end
 
   end
   
   def out
-    @global_out
+    @parser_new.to_s
   end
   
 
