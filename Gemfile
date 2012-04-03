@@ -4,6 +4,8 @@ gem 'rails', '3.2.2'
 
 gem 'nokogiri'
 
+gem 'css_parser'
+
 #gem 'httparty'
 
 #gem 'ruby-debug19', :require => 'ruby-debug'

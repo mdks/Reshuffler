@@ -19,5 +19,14 @@ class MainController < ApplicationController
     render :text => output.out
   end
 
+  def merge
+    old_css_link = params[:old_css_link]
+    
+    new_css_link = params[:new_css_link]
+
+    output = CSSMerge.new(old_css_link, new_css_link)
+
+    render :text => output.out
+  end
 
 end
