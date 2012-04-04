@@ -9,14 +9,16 @@ class CSSPusher
     @parser.load_uri!(css)
 
     @parser.each_rule_set do |rule_set|
-      if dir == 'right'
-      rule_set['left'] = "#{rule_set['left'].to_i + amt}px;"
-      elsif dir == 'left'
-        rule_set['left'] = "#{rule_set['left'].to_i - amt}px;"
-      elsif dir == 'up'
-        rule_set['top'] = "#{rule_set['top'].to_i - amt}px;"
-      elsif dir == 'down'
-        rule_set['top'] = "#{rule_set['top'].to_i + amt}px;"
+      if rule_set['position'] == "absolute;"
+        if dir == 'right'
+        rule_set['left'] = "#{rule_set['left'].to_i + amt}px;"
+        elsif dir == 'left'
+          rule_set['left'] = "#{rule_set['left'].to_i - amt}px;"
+        elsif dir == 'up'
+          rule_set['top'] = "#{rule_set['top'].to_i - amt}px;"
+        elsif dir == 'down'
+          rule_set['top'] = "#{rule_set['top'].to_i + amt}px;"
+        end
       end
     end
 
